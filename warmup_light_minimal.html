@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warm-up · Brain & Nature</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#ece9e2;font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;justify-content:center;padding:2rem 1rem;}
+.wrap{width:100%;max-width:480px;}
+.hero{background:#fff;border-radius:16px 16px 0 0;padding:1.75rem 1.5rem 1.25rem;border-bottom:1px solid #ece9e2;}
+.badge{display:inline-flex;align-items:center;gap:6px;background:#e8f4ee;color:#1D9E75;font-size:11px;font-weight:600;letter-spacing:.07em;padding:5px 14px;border-radius:20px;margin-bottom:1rem;}
+.title{font-family:'DM Serif Display',serif;font-size:44px;color:#1a1a1a;line-height:1.05;margin-bottom:.3rem;}
+.subtitle{font-size:12px;color:#999;margin-bottom:1.25rem;}
+.words-box{background:#f7f5f0;border-radius:12px;padding:1rem 1.25rem;}
+.words-label{font-size:10px;color:#bbb;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;}
+.pill{border:1.5px solid;border-radius:20px;padding:5px 14px;font-size:13px;font-weight:500;}
+.pill-a{border-color:#1D9E75;color:#1D9E75;}
+.pill-b{border-color:#c0773a;color:#c0773a;}
+.body-wrap{background:#fff;border-radius:0 0 16px 16px;padding-bottom:2rem;}
+.divider{height:2px;background:#f7f5f0;}
+.section{padding:1.25rem 1.5rem 0;}
+.act-header{display:flex;align-items:center;gap:10px;margin-bottom:.3rem;}
+.act-num{width:26px;height:26px;border-radius:50%;border:1.5px solid #1D9E75;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#1D9E75;flex-shrink:0;}
+.act-title{font-size:15px;font-weight:600;color:#1a1a1a;}
+.act-desc{font-size:12px;color:#aaa;margin-bottom:1rem;padding-left:36px;}
+.fill-sentence{font-size:14px;color:#444;line-height:2.2;margin-bottom:.15rem;}
+.fill-input{background:transparent;border:none;border-bottom:1.5px solid #ddd;color:#1a1a1a;font-size:14px;width:130px;outline:none;padding:2px 4px;transition:border-color .15s;font-family:'DM Sans',sans-serif;}
+.fill-input:focus{border-color:#1D9E75;}
+.fill-input.ok{border-color:#1D9E75;color:#1D9E75;}
+.fill-input.bad{border-color:#c0773a;color:#c0773a;}
+.fill-hint{font-size:11px;color:#bbb;font-style:italic;margin-bottom:.5rem;}
+.fill-fb{font-size:11px;min-height:15px;margin-bottom:.35rem;}
+.fb-ok{color:#1D9E75;}
+.fb-bad{color:#c0773a;}
+.btn-check{background:#1D9E75;color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:opacity .15s;font-family:'DM Sans',sans-serif;}
+.btn-check:hover{opacity:.85;}
+.btn-reset{background:transparent;border:1px solid #e0ddd7;color:#aaa;border-radius:8px;padding:8px 14px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s;}
+.btn-reset:hover{background:#f7f5f0;}
+.score-line{font-size:12px;color:#bbb;margin-top:.65rem;}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.match-col{display:flex;flex-direction:column;gap:7px;}
+.match-btn{background:#f7f5f0;border:1.5px solid #e8e4dc;border-radius:10px;padding:9px 12px;font-size:12px;color:#555;cursor:pointer;text-align:left;transition:border-color .15s,background .15s;font-family:'DM Sans',sans-serif;line-height:1.4;}
+.match-btn:hover{border-color:#ccc;background:#eee;}
+.match-btn.sel{border-color:#1D9E75;background:#e8f4ee;color:#0F6E56;}
+.match-btn.matched{border-color:#1D9E75;background:#e8f4ee;color:#0F6E56;cursor:default;}
+.match-btn.wrong-m{border-color:#c0773a;background:#fdf0e6;color:#7a4a20;}
+.timer-box{background:#f7f5f0;border-radius:12px;padding:.9rem 1.25rem;display:flex;align-items:center;gap:12px;margin-bottom:1rem;flex-wrap:wrap;}
+.timer-num{font-family:'DM Serif Display',serif;font-size:30px;color:#c0773a;min-width:58px;}
+.timer-label{font-size:11px;color:#bbb;margin-right:auto;}
+.timer-btn{background:transparent;border:1px solid #c0773a;color:#c0773a;border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s,color .15s;}
+.timer-btn:hover{background:#c0773a;color:#fff;}
+.timer-reset{border-color:#ddd;color:#bbb;}
+.timer-reset:hover{background:#eee;color:#888;}
+.speak-card{background:#f7f5f0;border-radius:12px;padding:.9rem 1.25rem;margin-bottom:9px;border-left:3px solid #1D9E75;}
+.speak-q{font-size:13px;color:#555;line-height:1.7;}
+.speak-word{color:#c0773a;font-weight:600;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="badge">🌿 Speaking club · warm-up</div>
+    <div class="title">Brain<br>&amp; nature</div>
+    <div class="subtitle">8 words · 3 activities · ~10 minutes</div>
+    <div class="words-box">
+      <div class="words-label">Today's words</div>
+      <div class="pills">
+        <span class="pill pill-a">ventured</span>
+        <span class="pill pill-b">correlates</span>
+        <span class="pill pill-a">for the sake of</span>
+        <span class="pill pill-b">self-conscious</span>
+        <span class="pill pill-a">deplete</span>
+        <span class="pill pill-b">cognition</span>
+        <span class="pill pill-a">recuperate</span>
+        <span class="pill pill-b">validating</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-wrap">
+    <div class="divider"></div>
+    <div class="section">
+      <div class="act-header">
+        <div class="act-num">1</div>
+        <div class="act-title">Fill in the blank</div>
+      </div>
+      <div class="act-desc">Type the missing word · discuss why with your partner</div>
+      <div style="margin-bottom:.8rem;">
+        <div class="fill-sentence">I sent an email yesterday, but she didn't <input class="fill-input" id="fi0" placeholder="______" autocomplete="off"> until this morning.</div>
+        <div class="fill-hint">to reply or react to something</div>
+        <div class="fill-fb" id="ff0"></div>
+      </div>
+      <div style="margin-bottom:.8rem;">
+        <div class="fill-sentence">Can you <input class="fill-input" id="fi1" placeholder="______" autocomplete="off"> your password? We just want to make sure it's correct.</div>
+        <div class="fill-hint">to confirm or check that something is true</div>
+        <div class="fill-fb" id="ff1"></div>
+      </div>
+      <div style="margin-bottom:.8rem;">
+        <div class="fill-sentence">My phone is so loud — I <input class="fill-input" id="fi2" placeholder="______" autocomplete="off"> about 50 notifications before lunch!</div>
+        <div class="fill-hint">to get something that was sent to you</div>
+        <div class="fill-fb" id="ff2"></div>
+      </div>
+      <div style="margin-bottom:.8rem;">
+        <div class="fill-sentence">The manager decided to <input class="fill-input" id="fi3" placeholder="______" autocomplete="off"> the old system and start fresh.</div>
+        <div class="fill-hint">to remove or get rid of something completely</div>
+        <div class="fill-fb" id="ff3"></div>
+      </div>
+      <div style="margin-bottom:.8rem;">
+        <div class="fill-sentence">Constant notifications can <input class="fill-input" id="fi4" placeholder="______" autocomplete="off"> your mental energy fast.</div>
+        <div class="fill-hint">to use up or drain a resource</div>
+        <div class="fill-fb" id="ff4"></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:.5rem;">
+        <button class="btn-check" onclick="checkFill()">Check answers</button>
+        <button class="btn-reset" onclick="resetFill()">Reset</button>
+      </div>
+      <div class="score-line" id="fill-score"></div>
+    </div>
+
+    <div class="divider" style="margin-top:1.5rem;"></div>
+    <div class="section">
+      <div class="act-header">
+        <div class="act-num">2</div>
+        <div class="act-title">Match the word</div>
+      </div>
+      <div class="act-desc">Connect each word with its everyday equivalent</div>
+      <div class="match-grid">
+        <div class="match-col" id="words-col"></div>
+        <div class="match-col" id="defs-col"></div>
+      </div>
+      <div style="margin-top:.75rem;">
+        <button class="btn-reset" onclick="resetMatch()">Reset</button>
+      </div>
+      <div class="score-line" id="match-score"></div>
+    </div>
+
+    <div class="divider" style="margin-top:1.5rem;"></div>
+    <div class="section">
+      <div class="act-header">
+        <div class="act-num">3</div>
+        <div class="act-title">Quick discussion</div>
+      </div>
+      <div class="act-desc">2 minutes · talk with a partner · use as many words as you can</div>
+      <div class="timer-box">
+        <div class="timer-label">Time left</div>
+        <div class="timer-num" id="timer-display">2:00</div>
+        <button class="timer-btn" id="timer-btn" onclick="toggleTimer()">Start</button>
+        <button class="timer-btn timer-reset" onclick="resetTimer()">Reset</button>
+      </div>
+      <div class="speak-card">
+        <div class="speak-q">Have you ever felt <span class="speak-word">self-conscious</span> about something in public? Did you manage to <span class="speak-word">recuperate</span> your confidence afterwards?</div>
+      </div>
+      <div class="speak-card">
+        <div class="speak-q">Do you think time in nature really <span class="speak-word">correlates</span> with better <span class="speak-word">cognition</span>? Would you try it <span class="speak-word">for the sake of</span> science?</div>
+      </div>
+      <div class="speak-card">
+        <div class="speak-q">What habits <span class="speak-word">deplete</span> your energy most? Have you ever <span class="speak-word">ventured</span> to change them — was the result <span class="speak-word">validating</span>?</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const fillAnswers=["respond","verify","received","eliminate","deplete"];
+function checkFill(){
+  let score=0,filled=0;
+  fillAnswers.forEach((ans,i)=>{
+    const inp=document.getElementById('fi'+i),fb=document.getElementById('ff'+i),val=inp.value.trim().toLowerCase();
+    if(!val){inp.className='fill-input';fb.innerHTML='';return;}
+    filled++;
+    if(val===ans){inp.className='fill-input ok';fb.innerHTML='<span class="fb-ok">✓ correct</span>';score++;}
+    else{inp.className='fill-input bad';fb.innerHTML='<span class="fb-bad">✗ answer: '+ans+'</span>';}
+  });
+  if(filled>0)document.getElementById('fill-score').textContent='Score: '+score+' / '+fillAnswers.length;
+}
+function resetFill(){
+  fillAnswers.forEach((_,i)=>{
+    document.getElementById('fi'+i).value='';
+    document.getElementById('fi'+i).className='fill-input';
+    document.getElementById('ff'+i).innerHTML='';
+  });
+  document.getElementById('fill-score').textContent='';
+}
+const matchPairs=[
+  {word:'ventured',def:'dared to explore'},
+  {word:'correlates',def:'is linked to'},
+  {word:'self-conscious',def:'awkward / aware of yourself'},
+  {word:'deplete',def:'drain / exhaust'},
+  {word:'cognition',def:'mental processing'},
+  {word:'recuperate',def:'recover / restore'},
+  {word:'validating',def:'confirming / supporting'},
+  {word:'for the sake of',def:'in the interest of'},
+];
+let mSelected=null,mDone={},mDefs=[];
+function shuffle(a){return [...a].sort(()=>Math.random()-.5);}
+function renderMatch(){
+  mSelected=null;mDone={};
+  mDefs=shuffle(matchPairs.map((p,i)=>({def:p.def,idx:i})));
+  document.getElementById('words-col').innerHTML=matchPairs.map((p,i)=>`<button class="match-btn" id="mw${i}" onclick="pickWord(${i})">${p.word}</button>`).join('');
+  document.getElementById('defs-col').innerHTML=mDefs.map((d,i)=>`<button class="match-btn" id="md${i}" onclick="pickDef(${i})">${d.def}</button>`).join('');
+  document.getElementById('match-score').textContent='';
+}
+function pickWord(i){
+  if(mDone['w'+i])return;
+  document.querySelectorAll('[id^="mw"]').forEach(el=>{if(!mDone['w'+el.id.slice(2)])el.className='match-btn';});
+  mSelected=i;
+  document.getElementById('mw'+i).className='match-btn sel';
+}
+function pickDef(j){
+  if(mSelected===null||mDone['d'+j])return;
+  const correct=mDefs[j].idx===mSelected;
+  const w=document.getElementById('mw'+mSelected),d=document.getElementById('md'+j);
+  if(correct){
+    w.className='match-btn matched';d.className='match-btn matched';
+    mDone['w'+mSelected]=true;mDone['d'+j]=true;mSelected=null;
+    if(Object.keys(mDone).filter(k=>k.startsWith('w')).length===matchPairs.length)
+      document.getElementById('match-score').textContent='All matched!';
+  } else {
+    w.className='match-btn wrong-m';d.className='match-btn wrong-m';
+    setTimeout(()=>{w.className='match-btn sel';d.className='match-btn';},700);
+  }
+}
+renderMatch();
+let timerSec=120,timerRunning=false,timerInterval=null;
+function fmt(s){return Math.floor(s/60)+':'+(s%60<10?'0':'')+s%60;}
+function toggleTimer(){
+  if(timerRunning){clearInterval(timerInterval);timerRunning=false;document.getElementById('timer-btn').textContent='Start';}
+  else{
+    timerRunning=true;document.getElementById('timer-btn').textContent='Pause';
+    timerInterval=setInterval(()=>{
+      timerSec--;
+      document.getElementById('timer-display').textContent=fmt(timerSec);
+      if(timerSec<=0){clearInterval(timerInterval);timerRunning=false;document.getElementById('timer-btn').textContent='Start';document.getElementById('timer-display').textContent='Done!';}
+    },1000);
+  }
+}
+function resetTimer(){
+  clearInterval(timerInterval);timerRunning=false;timerSec=120;
+  document.getElementById('timer-display').textContent='2:00';
+  document.getElementById('timer-btn').textContent='Start';
+}
+</script>
+</body>
+</html>
